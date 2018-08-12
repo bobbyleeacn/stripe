@@ -8,15 +8,15 @@ Time spent: 15+ hours spent in total
 
 The following **required** functionality is completed:
 
-- [X ] User has two tabs, one for Checkout, and one for Charges.
-- [X ] User can see the currently active tab.
-- [X ] User can create a charge for a desired amount on the Checkout tab.
-- [X ] User sees an error message when there is a card processing error.
-- [X ] User can see past charges on the Charges tab.
+- User has two tabs, one for Checkout, and one for Charges.
+- User can see the currently active tab.
+- User can create a charge for a desired amount on the Checkout tab.
+- User sees an error message when there is a card processing error.
+- User can see past charges on the Charges tab.
 
 The following **optional** features are implemented:
-- [X ] User can refund charges from the charges tab. 
-- [X ] Third tab for disputes. 
+- User can refund charges from the charges tab. 
+- Third tab for disputes. 
 
 The following **additional** features are implemented:
 - Improve overall look / cosmetics
