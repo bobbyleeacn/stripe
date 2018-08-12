@@ -6,16 +6,16 @@ export default class Payments extends Component {
     this.state = {
       data: [],
       loading: false,
-      showRefundData: true,
+      hideRefundData: true,
       refundData: null
     };
   }
 
   componentDidMount() {
-    this.getPayments2();
+    this.getPayments();
   }
 
-  getPayments2() {
+  getPayments() {
     this.setState({ loading: true });
     this.props.getSecret("charges").then(data => {
       this.setState({
@@ -25,8 +25,8 @@ export default class Payments extends Component {
     });
   }
 
-  showRefundData(refundData) {
-    this.setState({ showRefundData: false, refundData: refundData });
+  handleRefundData(refundData) {
+    this.setState({ hideRefundData: false, refundData: refundData });
   }
 
   render() {
@@ -36,7 +36,7 @@ export default class Payments extends Component {
         {...this.props}
         payment={payment}
         key={payment.id}
-        showRefundData={refundData => this.showRefundData(refundData)}
+        handleRefundData={refundData => this.handleRefundData(refundData)}
       />
     ));
     if (this.state.refundData) {
@@ -60,7 +60,7 @@ export default class Payments extends Component {
             <tbody>{payments}</tbody>
           </table>
         </div>
-        {this.state.showRefundData ? null : refundData}
+        {this.state.hideRefundData ? null : refundData}
       </div>
     );
   }
@@ -85,25 +85,28 @@ class Payment extends React.Component {
     console.log("refundData is ", refundData);
 
     this.setState({
-      refundData: refundData, // refund data setState not working
+      refundData: refundData,
       loading: false
     });
 
-    this.props.showRefundData(this.state.refundData);
+    this.props.handleRefundData(this.state.refundData);
   }
 
   render() {
+    const {id, amount, refunded, dispute, refundReason} = this.props.payment
+    let str = amount.toString()
+    const amountConverted = (str.slice(0, (str.length - 2)) + '.' + str.slice(str.length - 2))
     return (
       <tr>
-        <td>{this.props.payment.id}</td>
-        <td>{this.props.payment.amount}</td>
-        <td>{this.props.payment.refunded.toString()}</td>
-        <td>{(this.props.payment.dispute != null).toString()}</td>
-        <td>{this.props.payment.refundReason}</td>
+        <td>{id}</td>
+        <td> {'$' + amountConverted}</td>
+        <td>{refunded.toString()}</td>
+        <td>{(dispute != null).toString()}</td>
+        <td>{refundReason}</td>
         <td>
           <button
-            disabled={this.props.payment.refunded || this.props.payment.dispute}
-            onClick={() => this.postRefund(this.props.payment.id)}
+            disabled={refunded || dispute}
+            onClick={() => this.postRefund(id)}
           >
             refund
           </button>
@@ -121,6 +124,7 @@ const Refund = props => {
       <p>Charge ID: {props.charge}</p>
       <p>Amount: {props.amount}</p>
       <p>Status Message: {props.status}</p>
+      {props.error ? <div><p>Error Message: {props.error.message}</p><p>Type: {props.error.type}</p></div> : null}
     </div>
   );
 };

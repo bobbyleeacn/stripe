@@ -96,7 +96,7 @@ export default class Checkout extends Component {
             type="text"
             style={{ height: 35, width:315, fontSize: 14 }}
             placeholder="          Amount"
-            onChange={e => this.setState({ chargeAmount: e.target.value })}
+            onChange={e => this.setState({ chargeAmount: e.target.value * 100 })}
           />
           <button
             style={{ height: 33, paddingTop: 2, }}
