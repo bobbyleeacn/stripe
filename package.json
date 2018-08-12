@@ -5,8 +5,11 @@
   "dependencies": {
     "@blueprintjs/core": "^3.2.0",
     "react": "^16.4.2",
+    "react-credit-card-input": "^1.0.13",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-stripe-elements": "^2.0.1",
+    "reactstrap": "^6.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
