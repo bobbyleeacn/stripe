@@ -6,8 +6,6 @@ import Checkout from './components/Checkout'
 import Payments from './components/Payments'
 import Disputes from './components/Disputes'
 import { withStripe } from './components/StripeApi'
-
-
 import '@blueprintjs/core/lib/css/blueprint.css';
 
 
