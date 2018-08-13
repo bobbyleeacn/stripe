@@ -9,8 +9,8 @@ import { withStripe } from './components/StripeApi'
 import '@blueprintjs/core/lib/css/blueprint.css';
 
 
-const publicKey = 'your key here'  // used to request Token
-const secretKey = 'your key here'  // used to make a charge
+const publicKey = 'pk_test_AfqRos99rghht9D8wds486J5'  // used to request Token
+const secretKey = 'sk_test_D6h6iSYpP1TojlrLCtR5rFdP'  // used to make a charge
 
 
 export default class App extends Component {
@@ -43,6 +43,7 @@ refresh() {
             <SuperDisputes />
           </Tab>
         </TabList>
+        
       </div>
     );
   }

@@ -12,6 +12,7 @@ export default class Checkout extends Component {
       chargeAmount: null,
       status: null,
       errorMessage: null,
+      currency: 'usd',
     };
     this.createCharge = this.createCharge.bind(this);
   }
@@ -34,7 +35,7 @@ export default class Checkout extends Component {
 
     const chargeData = await this.props.postSecret("charges", {
       amount: this.state.chargeAmount,
-      currency: "usd",
+      currency: this.state.currency,
       description: "test charge",
       source: tokenData.id
     });
@@ -54,7 +55,7 @@ export default class Checkout extends Component {
       <div>
 
         <h2>Enter Credit Card Details:</h2>
-
+        <div><select onChange={(e)=>this.setState({currency:e.target.value})}><option value='usd'>usd</option><option value='vnd'>vnd</option></select></div><br />
         <CreditCardInput
           containerStyle={{
             borderStyle: "solid",

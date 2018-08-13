@@ -93,15 +93,15 @@ class Payment extends React.Component {
   }
 
   render() {
-    const {id, amount, refunded, dispute, refundReason} = this.props.payment
+    const {id, amount, refunded, dispute, refundReason, currency} = this.props.payment
     let str = amount.toString()
     const amountConverted = (str.slice(0, (str.length - 2)) + '.' + str.slice(str.length - 2))
     return (
       <tr>
-        <td>{id}</td>
-        <td> {'$' + amountConverted}</td>
-        <td>{refunded.toString()}</td>
-        <td>{(dispute != null).toString()}</td>
+        <td style={{width:270}}>{id}</td>
+        <td style={{width:100}}> {(currency==='usd') ? '$' + amountConverted : amount/100 + ' vnd'}</td>
+        <td style={{width:100}}>{refunded.toString()}</td>
+        <td style={{width:70}}>{(dispute != null).toString()}</td>
         <td>{refundReason}</td>
         <td>
           <button
