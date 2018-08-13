@@ -16,9 +16,10 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 - User can refund charges from the charges tab. 
-- Third tab for disputes. 
+- Third tab for disputes.
+- Support for multiple currencies.
 
-The following **additional** features are implemented:
+The following are features to be implemented in future installments:
 - Improve overall look / cosmetics
 - Add sorting and search capabilites
 
