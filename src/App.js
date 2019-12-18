@@ -9,8 +9,8 @@ import { withStripe } from './components/StripeApi'
 import '@blueprintjs/core/lib/css/blueprint.css';
 
 
-const publicKey = 'your key here'  // used to request Token
-const secretKey = 'your key here'  // used to make a charge
+const publicKey = process.env.REACT_APP_PUBKEY  // used to request Token
+const secretKey = process.env.REACT_APP_SECKEY  // used to make a charge
 
 
 export default class App extends Component {
