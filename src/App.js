@@ -33,13 +33,13 @@ refresh() {
     return (
       <div className="Tablist">
         <TabList refresh={this.refresh}>
-          <Tab title="checkout">
+          <Tab title="CHECKOUT">
             <SuperCheckout />
           </Tab>
-          <Tab title="payments">
+          <Tab title="PAYMENTS">
             <SuperPayments />
           </Tab>
-          <Tab title="disputes">
+          <Tab title="DISPUTES">
             <SuperDisputes />
           </Tab>
         </TabList>
