@@ -2,7 +2,8 @@
 
 **Stripe** is an app using the [Stripe API](https://stripe.com/docs/api).
 
-Time spent: 15+ hours spent in total
+[DEMO](https://awesome-banach-a3bce8.netlify.com) Project Here: https://awesome-banach-a3bce8.netlify.com
+Visit https://stripe.com/docs/testing for test card accounts
 
 ## User Stories
 
